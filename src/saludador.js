@@ -1,6 +1,6 @@
 function saludo(nombre, genero, edad) {
   saludo =""
-  if(genero != "vacio" && edad < 29){
+  if(genero != "vacio" && edad < 30){
     saludo+= genero;
   }
   if(genero == "vacio" && edad > 29){
@@ -13,7 +13,18 @@ function saludo(nombre, genero, edad) {
       saludo+= "Sra.";
     }
   }
-  saludo="Hola " + saludo + " " + nombre;
+  let fechaActual = new Date();
+  if(fechaActual.getHours()<12){
+    saludo="Buenos dias " + saludo + " " + nombre;
+  }
+  if(fechaActual.getHours()>=19){
+    saludo="Buenas noches " + saludo + " " + nombre;
+  }else{
+    saludo="Buenas tardes " + saludo + " " + nombre;
+  }
+
+ 
+
   return saludo;
 }
 
